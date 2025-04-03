@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>80's Obsession Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Color Palette from Logo */
+    :root {
+      --primary-color: #A04C9A; /* Dark Purple/Pink */
+      --secondary-color: #F9A1DE; /* Light Pink */
+      --accent1-color: #F7D95B; /* Yellow */
+      --accent2-color: #87CEEB; /* Light Blue */
+      --bg-color: #FFF5E8; /* Off-white/Cream - adjusted to match mockup */
+      --text-color: #333;
+      --heading-font: 'Fredoka One', cursive;
+      --body-font: 'Nunito', sans-serif;
+      --accent-font: 'Anton', sans-serif;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--heading-font);
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.8rem; } 
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--secondary-color);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* Header */
+    header {
+      padding: 0;
+      text-align: center;
+      border-bottom: 2px solid var(--secondary-color);
+      margin-bottom: 0;
+      background-color: white;
+      position: relative;
+    }
+    .logo-container {
+      max-width: 550px; /* Adjusted to better fit the logo */
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+    .logo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain; /* Ensures the logo maintains aspect ratio */
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--secondary-color);
+      padding: 12px 0;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+    }
+    nav ul li a {
+      font-family: var(--accent-font);
+      color: white;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Welcome Section */
+    .welcome-section {
+      background-color: white;
+      padding: 30px;
+      margin-bottom: 0;
+      border-radius: 0;
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 40px;
+    }
+    
+    .welcome-image {
+      flex: 1;
+      min-width: 250px;
+      border: 2px solid var(--secondary-color);
+      border-radius: 5px;
+      padding: 15px;
+      margin-right: 20px;
+    }
+    
+    .welcome-content {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .welcome-title {
+      color: var(--primary-color);
+      text-align: left;
+      margin-top: 0;
+      font-size: 2rem;
+    }
+    
+    .category-tag {
+      display: inline-block;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 30px;
+      margin: 5px;
+    }
+    
+    .category-tag:before {
+      margin-right: 5px;
+    }
+
+    /* Products Section */
+    .products-section {
+      padding: 30px;
+      background-color: white;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    .products-title {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .product-card {
+      background-color: var(--bg-color);
+      border: 2px solid var(--secondary-color);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    
+    .product-card h3 {
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+    
+    .product-card p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .product-price {
+      font-weight: bold;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      margin: 15px 0;
+    }
+    
+    .add-to-cart-btn {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      display: inline-block;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    
+    .add-to-cart-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    /* Shop With Us Section */
+    .shop-with-us {
+      background-color: var(--accent2-color);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .shop-with-us h2 {
+      color: white;
+      margin-bottom: 10px;
+    }
+    
+    .shop-with-us p {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    
+    .etsy-btn {
+      background-color: var(--accent1-color);
+      color: #333;
+      padding: 10px 25px;
+      border-radius: 30px;
+      display: inline-block;
+      font-weight: bold;
+      margin-bottom: 30px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .etsy-btn:hover {
+      background-color: white;
+    }
+    
+    .mailing-list {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    .mailing-list h3 {
+      color: var(--accent1-color);
+      margin-bottom: 10px;
+    }
+    
+    .mailing-list p {
+      color: white;
+      margin-bottom: 15px;
+    }
+    
+    .email-form {
+      display: flex;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .email-input {
+      flex-grow: 1;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      font-family: var(--body-font);
+    }
+    
+    .subscribe-btn {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .subscribe-btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background-color: white;
+      padding: 40px 20px;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    .contact-columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-column {
+      flex: 1;
+      min-width: 250px;
+      padding: 20px;
+    }
+    
+    .contact-column h3 {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      background-color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 0;
+    }
+    
+    footer p {
+      margin: 5px 0;
+    }
+    
+    footer a {
+      color: var(--accent1-color);
+      margin: 0 10px;
+    }
+    
+    footer a:hover {
+      color: white;
+    }
+    
+    .footer-tagline {
+      font-family: var(--accent-font);
+      margin-top: 15px;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    /* Simple Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      nav ul { flex-wrap: wrap; gap: 15px; justify-content: center; }
+      .welcome-section { flex-direction: column; }
+      .welcome-image { margin-right: 0; margin-bottom: 20px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .email-form { flex-direction: column; }
+      .email-input { border-radius: 5px; margin-bottom: 10px; }
+      .subscribe-btn { border-radius: 5px; }
+    }
+
+  </style>
+</head>
+<body>
+
+    <header>
+      <div class="logo-container">
+        <img src="sellable items/80's Obsession Co. logo.PNG" alt="80's Obsession Company Logo">
+      </div>
+    </header>
+
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#products">PRODUCTS</a></li>
+          <li><a href="#shop">SHOP</a></li>
+          <li><a href="#gallery">GALLERY</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <!-- Welcome Section -->
+        <section id="about" class="welcome-section">
+          <div class="welcome-image">
+            <p style="text-align: center; font-weight: bold; margin: 60px 0;">80s Decor Example</p>
+          </div>
+          <div class="welcome-content">
+            <h2 class="welcome-title">WELCOME TO THE 80's!</h2>
+            <p>Step into a time machine and journey back to the radical 80s with our totally awesome custom decorations!</p>
+            <p>We bring the sparkle, color, and good vibes of the 1980s back to life with custom party decorations, glam-letter decor, and more gnarly creations that'll make your heart sing with nostalgia!</p>
+            <div>
+              <span class="category-tag">🎤 Party Supplies</span>
+              <span class="category-tag">✨ Glam Letters</span>
+              <span class="category-tag">🛍️ Retro Merch</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section id="products" class="products-section">
+          <h2 class="products-title">FEATURED PRODUCTS</h2>
+          <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+              <img src="sellable items/CUSTOM GLAM LETTER C.JPEG" alt="Custom Pearl Letter C">
+              <h3>CUSTOM GLAM LETTER</h3>
+              <p>Handmade pearl-covered wooden letters for any event or room. Choose your letter, color, and style!</p>
+              <div class="product-price">$29.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+              <img src="sellable items/CUSTOM GLAM LETTER A.HEIC" alt="Custom Pearl Letter A">
+              <h3>CUSTOM GLAM LETTER</h3>
+              <p>Handmade pearl-covered wooden letters for any event or room. Choose your letter, color, and style!</p>
+              <div class="product-price">$29.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+              <img src="sellable items/CUSTOM GLAM LETTER ie.HEIC" alt="Custom Pearl Letter I">
+              <h3>CUSTOM GLAM LETTER</h3>
+              <p>Handmade pearl-covered wooden letters for any event or room. Choose your letter, color, and style!</p>
+              <div class="product-price">$29.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+              <img src="sellable items/CUSTOM GLAM LETTER ie.HEIC" alt="Custom Pearl Letter I/E">
+              <h3>CUSTOM GLAM LETTER</h3>
+              <p>Handmade pearl-covered wooden letters for any event or room. Choose your letter, color, and style!</p>
+              <div class="product-price">$29.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+              <img src="sellable items/CUSTOM GLAM LETTER CASSIE.HEIC" alt="Custom Pearl Name Cassie">
+              <h3>CUSTOM GLAM NAME</h3>
+              <p>Handmade pearl-covered wooden name signs perfect for bedrooms or gifts!</p>
+              <div class="product-price">$99.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+              <img src="sellable items/VINTAGE WOODEN CRATE.HEIC" alt="Vintage Wooden Crate">
+              <h3>VINTAGE WOODEN CRATE</h3>
+              <p>Perfect for storage or as a decorative piece with 80s flair!</p>
+              <div class="product-price">$49.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card">
+              <img src="sellable items/STRAWBERRY SHORTCAKE WALL ART.png" alt="Strawberry Shortcake Wall Art">
+              <h3>STRAWBERRY SHORTCAKE WALL ART</h3>
+              <p>Vintage-inspired Strawberry Shortcake artwork - perfect for 80s nostalgia!</p>
+              <div class="product-price">$39.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card">
+              <img src="sellable items/LUSH FLORAL ARRANGEMENT.heic" alt="Vintage Floral Centerpiece">
+              <h3>VINTAGE FLORAL CENTERPIECE</h3>
+              <p>Beautiful floral arrangement perfect for weddings or special events with 80s charm!</p>
+              <div class="product-price">$79.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card">
+              <img src="sellable items/LUSH FLORAL ARRANGEMENT.heic" alt="Lush Floral Arrangement">
+              <h3>LUSH FLORAL ARRANGEMENT</h3>
+              <p>Premium floral decor that brings vibrant 80s colors to any space!</p>
+              <div class="product-price">$89.99</div>
+              <a href="#" class="add-to-cart-btn">ADD TO CART</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Shop With Us Section -->
+        <section id="shop" class="shop-with-us">
+          <h2>SHOP WITH US</h2>
+          <p>All our totally awesome creations are available on Etsy!</p>
+          <a href="https://etsy.com/shop/80sObsessionCompany" target="_blank" class="etsy-btn">VISIT OUR ETSY SHOP</a>
+          
+          <div class="mailing-list">
+            <h3>JOIN OUR MAILING LIST</h3>
+            <p>Get updates on new products and exclusive deals!</p>
+            <form class="email-form">
+              <input type="email" placeholder="Your Email" class="email-input">
+              <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="contact-section">
+          <h2>CONTACT US</h2>
+          <div class="contact-columns">
+            <div class="contact-column">
+              <h3>GET IN TOUCH</h3>
+              <p>📧 hello@80sobsessionco.com</p>
+              <p>📞 (555) 80S-ROCK</p>
+              <p>📍 1980 Totally Awesome Lane, Retroville</p>
+            </div>
+            <div class="contact-column">
+              <h3>FOLLOW US</h3>
+              <p>Instagram: @80sObsessionCo</p>
+              <p>TikTok: @80sObsession</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+          <h2>GALLERY</h2>
+          <p>Check out some of our radical creations! (Gallery coming soon)</p>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 1980-2025 80's Obsession Company. All Rights Reserved.</p>
+        <p><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">FAQ</a></p>
+        <p class="footer-tagline">MAKIN' THE WORLD A LITTLE MORE RADICAL SINCE '85</p>
+      </footer>
+  </div>
+</body>
+</html>
