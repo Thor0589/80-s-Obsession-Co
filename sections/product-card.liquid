@@ -1,57 +1,102 @@
-{% assign product = section.settings.product %}
-<div
-  class="product-card"
-  style="
-    background: #fff5f8;
-    border: 2px solid #f9a1de;
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 12px rgba(160, 76, 154, 0.2);
-    transition: transform 0.3s ease;
-    text-align: center;
-    font-family: 'Helvetica Neue', sans-serif;
-  "
->
-  <a href="{{ product.url }}">
-    {% if product.featured_image %}
-      <img
-        src="{{ product.featured_image | image_url: width: 600 }}"
-        alt="{{ product.title | escape }}"
-        style="border-radius: 8px; max-width: 100%; height: auto; margin-bottom: 1rem;"
-      >
-    {% endif %}
-    <h3 style="color: #a04c9a; font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem;">
-      {{ product.title }}
-    </h3>
-    <p style="color: #333; margin-bottom: 1rem;">
-      {% if product.price < product.compare_at_price %}
-        <span style="text-decoration: line-through; color: #888;">
-          {{ product.compare_at_price | money }}
-        </span>
-        <span style="font-weight: bold; color: #a04c9a;">
-          {{ product.price | money }}
-        </span>
-      {% else %}
-        <span style="font-weight: bold; color: #a04c9a;">
-          {{ product.price | money }}
-        </span>
-      {% endif %}
+{% schema %}
+{
+  "name": "Custom Featured Products",
+  "tag": "section",
+  "class": "custom-featured-products-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Featured Glam Pieces ✨"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Number of products to show",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Featured Products"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  <style>
+    .custom-featured-products-section {
+      background: #fff0f8;
+      padding: 3rem 1rem;
+    }
+
+    .custom-featured-products-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #a04c9a;
+      margin-bottom: 2rem;
+    }
+
+    .custom-featured-products-grid {
+      display: grid;
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+      gap: 2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .custom-featured-products-grid {
+        grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+      }
+    }
+  </style>
+{% endstylesheet %}
+
+{% if section.settings.collection and collections[section.settings.collection] %}
+  {% assign collection = collections[section.settings.collection] %}
+  <div class="custom-featured-products-section page-width">
+    <h2>{{ section.settings.title }}</h2>
+    <div class="custom-featured-products-grid">
+      {% for product in collection.products limit: section.settings.products_to_show %}
+        <div class="grid__item">
+          {% render 'product-card', product: product %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+  <div class="custom-featured-products-section page-width">
+    <h2>{{ section.settings.title }}</h2>
+    <p style="text-align: center; color: #999;">
+      No collection selected or it’s empty. Please assign a collection in the section settings.
     </p>
-    <button
-      class="glam-button"
-      style="
-        background-color: #a04c9a;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 30px;
-        font-weight: bold;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      "
-    >
-      View Product
-    </button>
-  </a>
-</div>
+  </div>
+{% endif %}
