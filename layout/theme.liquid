@@ -2,103 +2,28 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="{{ settings.color_scheme_background }}">
     <link rel="canonical" href="{{ canonical_url }}">
 
-    {%- if settings.favicon != blank -%}
-      <link rel="icon" type="image/svg+xml" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
-    {%- endif -%}
+    <!-- Fonts and Tailwind CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Fredoka+One&family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    >
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    {{ 'theme.css' | asset_url | stylesheet_tag }}
-
+    <!-- Shopify-required -->
     {{ content_for_header }}
-
-    {%- unless settings.type_body_font_family == blank -%}
-      <link
-        rel="preload"
-        as="font"
-        href="{{ settings.type_body_font_family | font_url | h }}"
-        type="font/woff2"
-        crossorigin
-      >
-    {%- endunless -%}
-    {%- unless settings.type_heading_font_family == blank -%}
-      <link
-        rel="preload"
-        as="font"
-        href="{{ settings.type_heading_font_family | font_url | h }}"
-        type="font/woff2"
-        crossorigin
-      >
-    {%- endunless -%}
-
-    {%- if template contains 'product' -%}
-      {{ 'product-form.js' | asset_url | script_tag }}
-    {%- endif -%}
   </head>
+  <body>
+    <div id="MainContent">
+      {{ content_for_layout }}
+    </div>
 
-  <body class="gradient-background">
-    <a class="skip-to-content-link visually-hidden" href="#MainContent">
-      {{ 'accessibility.skip_to_content' | t }}
-    </a>
-
-    {%- section 'announcement-bar' -%}
-    {%- section 'header' -%}
-
-    {%- if template == 'index' -%}
-      {{ content_for_index }}
-    {%- else -%}
-      <main id="MainContent" class="content-container" role="main">
-        {{ content_for_layout }}
-      </main>
-    {%- endif -%}
-
-    <!-- 👇 START Custom Featured Products Section -->
-    <section class="custom-product-feature" style="padding: 2rem; text-align: center; background-color: #fff0f6;">
-      <h2 style="font-family: 'Courier New', cursive; color: #b030b0; font-size: 2rem; margin-bottom: 1rem;">
-        Featured Glam Pieces ✨
-      </h2>
-
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-        <!-- Pearl Letter C -->
-        <div style="max-width: 300px;">
-          <img
-            src="{{ 'Pearl_letter_C.JPEG' | asset_url }}"
-            alt="Pearl Letter C"
-            style="width: 100%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);"
-          >
-          <h3 style="margin-top: 0.5rem; font-size: 1.2rem; color: #b030b0;">Pearl Letter C</h3>
-          <a
-            href="/products/pearl-letter-c"
-            style="display: inline-block; padding: 0.5rem 1rem; background-color: #b030b0; color: white; border-radius: 5px; text-decoration: none; margin-top: 0.5rem;"
-          >
-            View Product
-          </a>
-        </div>
-
-        <!-- Charming Wooden Crate -->
-        <div style="max-width: 300px;">
-          <img
-            src="{{ 'charming wooden crate.png' | asset_url }}"
-            alt="Charming Wooden Crate"
-            style="width: 100%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);"
-          >
-          <h3 style="margin-top: 0.5rem; font-size: 1.2rem; color: #b030b0;">Charming Wooden Crate</h3>
-          <a
-            href="/products/charming-wooden-crate"
-            style="display: inline-block; padding: 0.5rem 1rem; background-color: #b030b0; color: white; border-radius: 5px; text-decoration: none; margin-top: 0.5rem;"
-          >
-            View Product
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- 👆 END Custom Featured Products Section -->
-
-    {%- section 'footer' -%}
-
+    <!-- Global JS (if any) -->
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
