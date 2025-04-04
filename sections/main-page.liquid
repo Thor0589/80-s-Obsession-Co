@@ -15,9 +15,55 @@
 {%- endstyle -%}
 
 <div class="page-width page-width--narrow section-{{ section.id }}-padding">
+  <!-- Display the page title -->
   <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ page.title | escape }}
   </h1>
+
+  <!-- Logo Image -->
+  <div class="main-page-logo">
+    <img
+      src="{{ '80s-obsession-co-logo.png' | asset_url }}"
+      alt="80's Obsession Company Logo"
+      style="max-width: 100%; height: auto;"
+    >
+  </div>
+
+  <!-- Decor Example Image -->
+  <div class="main-page-image">
+    <img src="{{ '80s-decor-example.jpg' | asset_url }}" alt="80s Decor Example" style="max-width: 100%; height: auto;">
+  </div>
+
+  <!-- Custom Pearl Letters -->
+  <div class="main-page-images">
+    <img
+      src="{{ 'Pearl_letter_C.JPEG' | asset_url }}"
+      alt="Custom Pearl Letter C"
+      style="max-width: 100%; height: auto;"
+    >
+    <img
+      src="{{ 'Pearl_letter_Cassie.png' | asset_url }}"
+      alt="Custom Pearl Letter Cassie"
+      style="max-width: 100%; height: auto;"
+    >
+    <img
+      src="{{ 'Pearl_letter_a.png' | asset_url }}"
+      alt="Custom Pearl Letter A"
+      style="max-width: 100%; height: auto;"
+    >
+    <img
+      src="{{ 'Pearl_letter_i.png' | asset_url }}"
+      alt="Custom Pearl Letter I"
+      style="max-width: 100%; height: auto;"
+    >
+    <img
+      src="{{ 'Pearl_letter_s.png' | asset_url }}"
+      alt="Custom Pearl Letter S"
+      style="max-width: 100%; height: auto;"
+    >
+  </div>
+
+  <!-- Render the page content -->
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {{ page.content }}
   </div>
