@@ -135,15 +135,20 @@
       },
       "header": {
         "type": "header",
-        "custom_css": [],
+        "custom_css": [
+          "header{background:linear-gradient(90deg,#ff6ee8,#a74dc8);padding:20px;text-align:center}",
+          "header h1,header h2{color:#fff;font-family:'Sniglet',cursive;text-shadow:0 0 5px #fff,0 0 10px #ffb7f7}",
+          "header a{color:#fff;text-decoration:none;margin:0 10px;font-weight:bold}",
+          "header a:hover{color:#ffebf9;text-shadow:0 0 5px #fff}"
+        ],
         "settings": {}
       },
       "footer": {
         "type": "footer",
         "custom_css": [
-          "footer{padding:40px 20px;text-align:center;background:linear-gradient(135deg,#a74dc8,#ff6ee8);color:#fff;border-top:4px dashed #ffd6f7;font-family:'Sniglet',cursive}",
-          "footer a{color:#ffc6f7;font-weight:bold;text-decoration:none;margin:0 10px;transition:.3s}",
-          "footer a:hover{color:#fff;text-shadow:0 0 5px #ff6ee8,0 0 10px #ff6ee8}"
+          "footer {padding: 40px 20px; text-align: center; background: linear-gradient(135deg, #a74dc8, #ff6ee8); color: #fff; border-top: 4px dashed #ffd6f7; font-family: \"Sniglet\", cursive;}",
+          "footer a {color: #ffc6f7; font-weight: bold; text-decoration: none; margin: 0 10px; transition: 0.3s;}",
+          "footer a:hover {color: #fff; text-shadow: 0 0 5px #ff6ee8, 0 0 10px #ff6ee8;}"
         ],
         "settings": {}
       }
