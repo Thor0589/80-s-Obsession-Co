@@ -39,14 +39,14 @@
     "inputs_shadow_horizontal_offset": 0,
     "inputs_shadow_vertical_offset": 4,
     "inputs_shadow_blur": 5,
-    "card_style": "standard",
+    "card_style": "card",
     "card_image_padding": 0,
-    "card_text_alignment": "left",
+    "card_text_alignment": "center",
     "card_color_scheme": "scheme-2",
-    "card_border_thickness": 0,
-    "card_border_opacity": 10,
-    "card_corner_radius": 0,
-    "card_shadow_opacity": 0,
+    "card_border_thickness": 2,
+    "card_border_opacity": 100,
+    "card_corner_radius": 10,
+    "card_shadow_opacity": 20,
     "card_shadow_horizontal_offset": 0,
     "card_shadow_vertical_offset": 4,
     "card_shadow_blur": 5,
@@ -400,12 +400,12 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "/* === 80s Obsession Global Styles === */body {font-family: 'Sniglet', cursive; /* Swap with your custom font */ background: linear-gradient(to bottom, #ffe0fa, #fff); color: #5a027a;}",
+      "/* === 80s Obsession Global Styles === */body {font-family: \"Sniglet\", cursive; /* Swap with your custom font */ background: linear-gradient(to bottom, #ffe0fa, #fff); color: #5a027a;}",
       "a {color: #a74dc8; text-decoration: none; font-weight: bold; transition: 0.3s ease;}",
       "a:hover {color: #ff6ee8; text-shadow: 0 0 5px #ffc6f7;}",
-      "button, .button {background: linear-gradient(90deg, #ff6ee8, #a74dc8); color: #fff; border: none; border-radius: 12px; padding: 12px 24px; font-weight: bold; text-transform: uppercase; box-shadow: 0 0 10px #ffb7f7; transition: transform 0.2s ease;}",
-      "button:hover, .button:hover {transform: scale(1.05); box-shadow: 0 0 15px #ff6ee8;}",
-      "input, textarea {border: 2px dashed #a74dc8; border-radius: 8px; padding: 10px; font-family: inherit;}"
+      "button,.button {background: linear-gradient(90deg, #ff6ee8, #a74dc8); color: #fff; border: none; border-radius: 12px; padding: 12px 24px; font-weight: bold; text-transform: uppercase; box-shadow: 0 0 10px #ffb7f7; transition: transform 0.2s ease;}",
+      "button:hover,.button:hover {transform: scale(1.05); box-shadow: 0 0 15px #ff6ee8;}",
+      "input,textarea {border: 2px dashed #a74dc8; border-radius: 8px; padding: 10px; font-family: inherit;}"
     ]
   }
 }
