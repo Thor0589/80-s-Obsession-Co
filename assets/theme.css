@@ -1,87 +1,96 @@
-/* Color Palette from Logo */
+/* === Color Palette from Logo === */
 :root {
   --primary-color: #A04C9A; /* Dark Purple/Pink */
   --secondary-color: #F9A1DE; /* Light Pink */
-  --accent1-color: #F7D95B; /* Yellow */
-  --accent2-color: #87CEEB; /* Light Blue */
-  --bg-color: #FAF0E6; /* Off-white/Cream */
+  --accent1-color: #F7D95B;  /* Yellow */
+  --accent2-color: #87CEEB;  /* Light Blue */
+  --bg-color: #FAF0E6;       /* Off-white/Cream */
   --text-color: #333;
+
   --heading-font: 'Fredoka One', cursive;
   --body-font: 'Nunito', sans-serif;
   --accent-font: 'Anton', sans-serif;
 }
 
+/* === Global Base Styles === */
 body {
   font-family: var(--body-font);
   background-color: var(--bg-color);
+  /* Optional: Uncomment for gradient background */
+  /* background: linear-gradient(90deg, #ff6ee8 0%, #f97de2 50%, #a74dc8 100%); */
   color: var(--text-color);
   margin: 0;
   padding: 0;
 }
 
+/* === Typography === */
 h1, h2, h3 {
   font-family: var(--heading-font);
-  color: var(--primary-color);
   text-align: center;
   margin-bottom: 1rem;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.8rem; color: var(--secondary-color); } /* Different color for H3 */
+h1 { font-size: 3rem; color: var(--primary-color); }
+h2 { font-size: 2.5rem; color: var(--primary-color); }
+h3 { font-size: 1.8rem; color: var(--secondary-color); }
 
 p {
   line-height: 1.6;
   margin-bottom: 1rem;
 }
 
+/* === Links === */
 a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
 a:hover {
   color: var(--secondary-color);
 }
 
+/* === Container === */
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Header */
+/* === Header === */
 header {
   padding: 0;
   text-align: center;
-  border-bottom: 5px solid var(--secondary-color);
-  margin-bottom: 0; /* Remove margin-bottom to bring nav closer */
   background-color: white;
+  border-bottom: 5px solid var(--secondary-color);
+  margin-bottom: 0;
   position: relative;
 }
+
 .logo-container {
-  max-width: 600px; /* Adjusted to better fit the logo */
+  max-width: 600px;
   margin: 0 auto;
   padding: 10px 0;
 }
+
 .logo-container img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain; /* Ensures the logo maintains aspect ratio */
+  object-fit: contain;
 }
 
-/* Navigation */
+/* === Navigation === */
 nav {
   background-color: var(--secondary-color);
   padding: 15px 0;
-  border-radius: 0; /* Removed border radius to match new design */
   margin-bottom: 30px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -90,6 +99,7 @@ nav ul {
   justify-content: center;
   gap: 30px;
 }
+
 nav ul li a {
   font-family: var(--accent-font);
   color: white;
@@ -99,55 +109,61 @@ nav ul li a {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
+
 nav ul li a:hover {
   background-color: var(--primary-color);
   color: white;
 }
 
-/* Sections */
+/* === Sections === */
 section {
   background-color: white;
   padding: 30px;
   margin-bottom: 30px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
+
 section h2 {
   margin-top: 0;
 }
 
-/* Buttons */
+/* === Buttons === */
 .btn {
   display: inline-block;
   background-color: var(--primary-color);
   color: white;
   padding: 12px 25px;
-  border-radius: 25px; /* Rounded like logo text */
+  border-radius: 25px;
   font-family: var(--body-font);
   font-weight: bold;
   text-align: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .btn:hover {
   background-color: var(--secondary-color);
   color: var(--primary-color);
   transform: scale(1.05);
 }
+
 .btn-secondary {
   background-color: var(--accent1-color);
   color: var(--primary-color);
 }
- .btn-secondary:hover {
+
+.btn-secondary:hover {
   background-color: var(--accent2-color);
   color: white;
 }
 
-/* Product Grid */
+/* === Product Grid === */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
 }
+
 .product-card {
   background-color: var(--bg-color);
   border: 2px solid var(--secondary-color);
@@ -156,29 +172,33 @@ section h2 {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(160, 76, 154, 0.2); /* Primary color shadow */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(160, 76, 154, 0.2);
 }
+
 .product-card img {
   max-width: 100%;
-  height: 200px; /* Fixed height */
+  height: 200px;
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 15px;
 }
- .product-card h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
- }
-.product-price {
-    font-family: var(--accent-font);
-    font-size: 1.3rem;
-    color: var(--primary-color);
-    margin: 15px 0;
+
+.product-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
-/* Footer */
+.product-price {
+  font-family: var(--accent-font);
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin: 15px 0;
+}
+
+/* === Footer === */
 footer {
   background-color: var(--primary-color);
   color: white;
@@ -187,23 +207,52 @@ footer {
   margin-top: 40px;
   border-top: 5px solid var(--secondary-color);
 }
+
 footer p {
   margin: 5px 0;
 }
+
 footer a {
-    color: var(--accent1-color);
-}
-footer a:hover {
-    color: white;
+  color: var(--accent1-color);
 }
 
-/* Simple Responsive */
+footer a:hover {
+  color: white;
+}
+
+/* === Sparkle Overlay (Optional) === */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('{{ "sparkle.gif" | asset_url }}') repeat;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.2;
+  animation: sparkleFloat 60s linear infinite;
+}
+
+@keyframes sparkleFloat {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
-  nav ul { flex-direction: column; gap: 15px; align-items: center; }
-  .container { padding: 15px; }
-  .logo-container { 
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .container {
+    padding: 15px;
+  }
+  .logo-container {
     max-width: 100%;
     padding: 10px 20px;
   }
