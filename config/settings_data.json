@@ -136,10 +136,10 @@
       "header": {
         "type": "header",
         "custom_css": [
-          "header{position:sticky;top:0;z-index:1000;background:linear-gradient(90deg,#ff6ee8,#a74dc8);padding:20px;text-align:center}",
-          "header h1,header h2{color:#fff;font-family:'Sniglet',cursive;text-shadow:0 0 5px #fff,0 0 10px #fdf}",
-          "header a{color:#fff;text-decoration:none;margin:0 10px;font-weight:bold}",
-          "header a:hover{color:#ffebf9;text-shadow:0 0 5px #fff}"
+          "header {position: sticky; top: 0; z-index: 1000; background: linear-gradient(90deg, #ff6ee8, #a74dc8); padding: 20px; text-align: center;}",
+          "header h1,header h2 {color: #fff; font-family: \"Sniglet\", cursive; text-shadow: 0 0 5px #fff, 0 0 10px #fdf;}",
+          "header a {color: #fff; text-decoration: none; margin: 0 10px; font-weight: bold;}",
+          "header a:hover {color: #ffebf9; text-shadow: 0 0 5px #fff;}"
         ],
         "settings": {}
       },
@@ -400,7 +400,12 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ".custom-section h2 {font-size: 32px;}"
+      "/* === 80s Obsession Global Styles === */body {font-family: 'Sniglet', cursive; /* Swap with your custom font */ background: linear-gradient(to bottom, #ffe0fa, #fff); color: #5a027a;}",
+      "a {color: #a74dc8; text-decoration: none; font-weight: bold; transition: 0.3s ease;}",
+      "a:hover {color: #ff6ee8; text-shadow: 0 0 5px #ffc6f7;}",
+      "button, .button {background: linear-gradient(90deg, #ff6ee8, #a74dc8); color: #fff; border: none; border-radius: 12px; padding: 12px 24px; font-weight: bold; text-transform: uppercase; box-shadow: 0 0 10px #ffb7f7; transition: transform 0.2s ease;}",
+      "button:hover, .button:hover {transform: scale(1.05); box-shadow: 0 0 15px #ff6ee8;}",
+      "input, textarea {border: 2px dashed #a74dc8; border-radius: 8px; padding: 10px; font-family: inherit;}"
     ]
   }
 }
