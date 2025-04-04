@@ -1,6 +1,34 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Custom Featured Products",
+  "tag": "section",
+  "class": "custom-featured-wrapper",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom Featured Products",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<section id="products" class="products-section">
+  <h2 class="products-title">FEATURED PRODUCTS</h2>
+  <div class="product-grid">
+    {% for product in collections.frontpage.products %}
+      <div class="product-card">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+        </a>
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description | strip_html | truncatewords: 20 }}</p>
+        <div class="product-price">{{ product.price | money }}</div>
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <button type="submit" class="add-to-cart-btn">ADD TO CART</button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+</section>
