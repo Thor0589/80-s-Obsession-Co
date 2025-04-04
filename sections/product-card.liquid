@@ -1,77 +1,57 @@
-<!-- sections/product-card.liquid -->
-{% assign featured_products = collections.frontpage.products %}
-
-<div class="custom-product-card-container" style="background-color: #FFF5E8; padding: 2rem;">
-  <h2
-    style="
-      text-align: center;
-      font-family: 'Fredoka One', cursive;
-      color: #A04C9A;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    "
-  >
-    ✨ Featured Glam Pieces ✨
-  </h2>
-
-  <div
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    "
-  >
-    {% for product in featured_products %}
-      <div
-        style="
-          background-color: white;
-          border: 2px solid #F9A1DE;
-          border-radius: 15px;
-          overflow: hidden;
-          padding: 1rem;
-          text-align: center;
-          transition: transform 0.3s ease;
-          box-shadow: 0 0 15px rgba(160, 76, 154, 0.1);
-        "
-        onmouseover="this.style.transform='translateY(-5px)'"
-        onmouseout="this.style.transform='translateY(0)'"
+{% assign product = section.settings.product %}
+<div
+  class="product-card"
+  style="
+    background: #fff5f8;
+    border: 2px solid #f9a1de;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(160, 76, 154, 0.2);
+    transition: transform 0.3s ease;
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+  "
+>
+  <a href="{{ product.url }}">
+    {% if product.featured_image %}
+      <img
+        src="{{ product.featured_image | image_url: width: 600 }}"
+        alt="{{ product.title | escape }}"
+        style="border-radius: 8px; max-width: 100%; height: auto; margin-bottom: 1rem;"
       >
-        <a href="{{ product.url }}">
-          <img
-            src="{{ product.featured_image | img_url: '360x360' }}"
-            alt="{{ product.title }}"
-            style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 1rem;"
-          >
-        </a>
-
-        <h3 style="color: #F9A1DE; font-family: 'Anton', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem;">
-          {{ product.title }}
-        </h3>
-
-        <p style="font-family: 'Nunito', sans-serif; color: #333; margin-bottom: 1rem;">
+    {% endif %}
+    <h3 style="color: #a04c9a; font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem;">
+      {{ product.title }}
+    </h3>
+    <p style="color: #333; margin-bottom: 1rem;">
+      {% if product.price < product.compare_at_price %}
+        <span style="text-decoration: line-through; color: #888;">
+          {{ product.compare_at_price | money }}
+        </span>
+        <span style="font-weight: bold; color: #a04c9a;">
           {{ product.price | money }}
-        </p>
-
-        <a
-          href="{{ product.url }}"
-          style="
-            display: inline-block;
-            background-color: #A04C9A;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-family: 'Nunito', sans-serif;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-          "
-        >
-          View Product
-        </a>
-      </div>
-    {% endfor %}
-  </div>
+        </span>
+      {% else %}
+        <span style="font-weight: bold; color: #a04c9a;">
+          {{ product.price | money }}
+        </span>
+      {% endif %}
+    </p>
+    <button
+      class="glam-button"
+      style="
+        background-color: #a04c9a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      "
+    >
+      View Product
+    </button>
+  </a>
 </div>
