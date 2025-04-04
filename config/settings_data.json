@@ -140,6 +140,9 @@
       },
       "footer": {
         "type": "footer",
+        "custom_css": [
+          "footer {padding: 40px 20px; text-align: center;}"
+        ],
         "settings": {}
       }
     },
