@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "custom_homepage": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "custom-featured-products": {
       "type": "custom-featured-products",
       "settings": {
@@ -24,8 +31,5 @@
       "settings": {}
     }
   },
-  "order": [
-    "custom-featured-products",
-    "footer"
-  ]
+  "order": ["custom_homepage", "custom-featured-products", "footer"]
 }
