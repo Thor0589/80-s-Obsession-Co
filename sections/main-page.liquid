@@ -22,45 +22,109 @@
 
   <!-- Logo Image -->
   <div class="main-page-logo">
-    <img
-      src="{{ '80s-obsession-co-logo.png' | asset_url }}"
-      alt="80's Obsession Company Logo"
-      style="max-width: 100%; height: auto;"
-    >
+    {% if section.settings.logo_image != blank %}
+      <img
+        src="{{ section.settings.logo_image | img_url: 'master' }}"
+        alt="{{ section.settings.logo_image_alt }}"
+        style="max-width: 100%; height: auto;"
+      >
+    {% else %}
+      <img
+        src="{{ '80s-obsession-co-logo.png' | asset_url }}"
+        alt="80's Obsession Company Logo"
+        style="max-width: 100%; height: auto;"
+      >
+    {% endif %}
   </div>
 
   <!-- Decor Example Image -->
   <div class="main-page-image">
-    <img src="{{ '80s-decor-example.jpg' | asset_url }}" alt="80s Decor Example" style="max-width: 100%; height: auto;">
+    {% if section.settings.decor_image != blank %}
+      <img
+        src="{{ section.settings.decor_image | img_url: 'master' }}"
+        alt="{{ section.settings.decor_image_alt }}"
+        style="max-width: 100%; height: auto;"
+      >
+    {% else %}
+      <img
+        src="{{ '80s-decor-example.jpg' | asset_url }}"
+        alt="80s Decor Example"
+        style="max-width: 100%; height: auto;"
+      >
+    {% endif %}
   </div>
 
   <!-- Custom Pearl Letters -->
   <div class="main-page-images">
-    <img
-      src="{{ 'Pearl_letter_C.JPEG' | asset_url }}"
-      alt="Custom Pearl Letter C"
-      style="max-width: 100%; height: auto;"
-    >
-    <img
-      src="{{ 'Pearl_letter_Cassie.png' | asset_url }}"
-      alt="Custom Pearl Letter Cassie"
-      style="max-width: 100%; height: auto;"
-    >
-    <img
-      src="{{ 'Pearl_letter_a.png' | asset_url }}"
-      alt="Custom Pearl Letter A"
-      style="max-width: 100%; height: auto;"
-    >
-    <img
-      src="{{ 'Pearl_letter_i.png' | asset_url }}"
-      alt="Custom Pearl Letter I"
-      style="max-width: 100%; height: auto;"
-    >
-    <img
-      src="{{ 'Pearl_letter_s.png' | asset_url }}"
-      alt="Custom Pearl Letter S"
-      style="max-width: 100%; height: auto;"
-    >
+    {% if section.settings.pearl_letter_c != blank %}
+      <img
+        src="{{ section.settings.pearl_letter_c | img_url: 'master' }}"
+        alt="{{ section.settings.pearl_letter_c_alt }}"
+        style="max-width: 100%; height: auto;"
+      >
+    {% else %}
+      <img
+        src="{{ 'Pearl_letter_C.JPEG' | asset_url }}"
+        alt="Custom Pearl Letter C"
+        style="max-width: 100%; height: auto;"
+      >
+    {% endif %}
+
+    {% if section.settings.pearl_letter_cassie != blank %}
+      <img
+        src="{{ section.settings.pearl_letter_cassie | img_url: 'master' }}"
+        alt="{{ section.settings.pearl_letter_cassie_alt }}"
+        style="max-width: 100%; height: auto;"
+      >
+    {% else %}
+      <img
+        src="{{ 'Pearl_letter_Cassie.png' | asset_url }}"
+        alt="Custom Pearl Letter Cassie"
+        style="max-width: 100%; height: auto;"
+      >
+    {% endif %}
+
+    {% if section.settings.pearl_letter_a != blank %}
+      <img
+        src="{{ section.settings.pearl_letter_a | img_url: 'master' }}"
+        alt="{{ section.settings.pearl_letter_a_alt }}"
+        style="max-width: 100%; height: auto;"
+      >
+    {% else %}
+      <img
+        src="{{ 'Pearl_letter_a.png' | asset_url }}"
+        alt="Custom Pearl Letter A"
+        style="max-width: 100%; height: auto;"
+      >
+    {% endif %}
+
+    {% if section.settings.pearl_letter_i != blank %}
+      <img
+        src="{{ section.settings.pearl_letter_i | img_url: 'master' }}"
+        alt="{{ section.settings.pearl_letter_i_alt }}"
+        style="max-width: 100%; height: auto;"
+      >
+    {% else %}
+      <img
+        src="{{ 'Pearl_letter_i.png' | asset_url }}"
+        alt="Custom Pearl Letter I"
+        style="max-width: 100%; height: auto;"
+      >
+    {% endif %}
+
+    {% if section.settings.pearl_letter_s != blank %}
+      <img
+        src="{{ section.settings.pearl_letter_s | img_url: 'master' }}"
+        alt="{{ section.settings.pearl_letter_s_alt }}"
+        style="max-width: 100%; height: auto;"
+      >
+    {% else %}
+      <img
+        src="{{ 'Pearl_letter_s.png' | asset_url }}"
+        alt="Custom Pearl Letter S"
+        style="max-width: 100%; height: auto;"
+      >
+    {% endif %}
   </div>
 
   <!-- Render the page content -->
@@ -98,6 +162,83 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "logo_image_alt",
+      "label": "Logo Image Alt Text",
+      "default": "80's Obsession Company Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "decor_image",
+      "label": "Decor Example Image"
+    },
+    {
+      "type": "text",
+      "id": "decor_image_alt",
+      "label": "Decor Image Alt Text",
+      "default": "80s Decor Example"
+    },
+    {
+      "type": "image_picker",
+      "id": "pearl_letter_c",
+      "label": "Custom Pearl Letter C"
+    },
+    {
+      "type": "text",
+      "id": "pearl_letter_c_alt",
+      "label": "Pearl Letter C Alt Text",
+      "default": "Custom Pearl Letter C"
+    },
+    {
+      "type": "image_picker",
+      "id": "pearl_letter_cassie",
+      "label": "Custom Pearl Letter Cassie"
+    },
+    {
+      "type": "text",
+      "id": "pearl_letter_cassie_alt",
+      "label": "Pearl Letter Cassie Alt Text",
+      "default": "Custom Pearl Letter Cassie"
+    },
+    {
+      "type": "image_picker",
+      "id": "pearl_letter_a",
+      "label": "Custom Pearl Letter A"
+    },
+    {
+      "type": "text",
+      "id": "pearl_letter_a_alt",
+      "label": "Pearl Letter A Alt Text",
+      "default": "Custom Pearl Letter A"
+    },
+    {
+      "type": "image_picker",
+      "id": "pearl_letter_i",
+      "label": "Custom Pearl Letter I"
+    },
+    {
+      "type": "text",
+      "id": "pearl_letter_i_alt",
+      "label": "Pearl Letter I Alt Text",
+      "default": "Custom Pearl Letter I"
+    },
+    {
+      "type": "image_picker",
+      "id": "pearl_letter_s",
+      "label": "Custom Pearl Letter S"
+    },
+    {
+      "type": "text",
+      "id": "pearl_letter_s_alt",
+      "label": "Pearl Letter S Alt Text",
+      "default": "Custom Pearl Letter S"
     }
   ]
 }
