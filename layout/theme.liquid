@@ -16,16 +16,27 @@
     {{ content_for_header }}
 
     {%- unless settings.type_body_font_family == blank -%}
-      <link rel="preload" as="font" href="{{ settings.type_body_font_family | font_url | h }}" type="font/woff2" crossorigin>
+      <link
+        rel="preload"
+        as="font"
+        href="{{ settings.type_body_font_family | font_url | h }}"
+        type="font/woff2"
+        crossorigin
+      >
     {%- endunless -%}
     {%- unless settings.type_heading_font_family == blank -%}
-      <link rel="preload" as="font" href="{{ settings.type_heading_font_family | font_url | h }}" type="font/woff2" crossorigin>
+      <link
+        rel="preload"
+        as="font"
+        href="{{ settings.type_heading_font_family | font_url | h }}"
+        type="font/woff2"
+        crossorigin
+      >
     {%- endunless -%}
 
     {%- if template contains 'product' -%}
       {{ 'product-form.js' | asset_url | script_tag }}
     {%- endif -%}
-
   </head>
 
   <body class="gradient-background">
@@ -44,9 +55,50 @@
       </main>
     {%- endif -%}
 
+    <!-- 👇 START Custom Featured Products Section -->
+    <section class="custom-product-feature" style="padding: 2rem; text-align: center; background-color: #fff0f6;">
+      <h2 style="font-family: 'Courier New', cursive; color: #b030b0; font-size: 2rem; margin-bottom: 1rem;">
+        Featured Glam Pieces ✨
+      </h2>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+        <!-- Product 1 -->
+        <div style="max-width: 300px;">
+          <img
+            src="{{ 'Pearl_letter_C.png' | asset_url }}"
+            alt="Pearl Letter C"
+            style="width: 100%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);"
+          >
+          <h3 style="margin-top: 0.5rem; font-size: 1.2rem;">Pearl Letter C</h3>
+          <a
+            href="/products/pearl-letter-c"
+            style="display: inline-block; padding: 0.5rem 1rem; background-color: #b030b0; color: white; border-radius: 5px; text-decoration: none; margin-top: 0.5rem;"
+          >
+            View Product
+          </a>
+        </div>
+
+        <!-- Product 2 -->
+        <div style="max-width: 300px;">
+          <img
+            src="{{ 'charming_wooden_crate.png' | asset_url }}"
+            alt="Charming Wooden Crate"
+            style="width: 100%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);"
+          >
+          <h3 style="margin-top: 0.5rem; font-size: 1.2rem;">Charming Wooden Crate</h3>
+          <a
+            href="/products/charming-wooden-crate"
+            style="display: inline-block; padding: 0.5rem 1rem; background-color: #b030b0; color: white; border-radius: 5px; text-decoration: none; margin-top: 0.5rem;"
+          >
+            View Product
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- 👆 END Custom Featured Products Section -->
+
     {%- section 'footer' -%}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-
   </body>
 </html>
